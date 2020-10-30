@@ -9,9 +9,13 @@ class SignUpView extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/background.jpeg'),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.white,
+              Colors.green,
+            ],
           ),
         ),
         child: SafeArea(
@@ -26,7 +30,7 @@ class SignUpView extends StatelessWidget {
                       'Registrar',
                       style: TextStyle(
                         fontSize: 38,
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),

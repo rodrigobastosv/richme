@@ -14,9 +14,13 @@ class _SignInViewState extends State<SignInView> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/background.jpeg'),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.white,
+              Colors.green,
+            ],
           ),
         ),
         child: SafeArea(
@@ -27,13 +31,7 @@ class _SignInViewState extends State<SignInView> {
                   height: 0.30 * MediaQuery.of(context).size.height,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 38),
-                    child: Text(
-                      'LOGO',
-                      style: TextStyle(
-                        fontSize: 38,
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: Image.asset('assets/images/logo.png'),
                   ),
                 ),
                 Container(

@@ -150,22 +150,23 @@ class _SignUpFormState extends State<SignUpForm>
                       }
                     },
                     child: BlocBuilder<SignUpCubit, SignUpState>(
-                        builder: (_, state) {
-                      if (state is StartedSignUpAnimation) {
-                        return CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Colors.white,
-                          ),
-                        );
-                      } else {
-                        return Text(
-                          'Cadastrar',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        );
-                      }
-                    }),
+                      builder: (_, state) {
+                        if (state is StartedSignUpAnimation) {
+                          return CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Colors.white,
+                            ),
+                          );
+                        } else {
+                          return Text(
+                            'Cadastrar',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),

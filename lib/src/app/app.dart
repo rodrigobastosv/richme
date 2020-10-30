@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'page/home/home_page.dart';
 import 'page/sign_in/sign_in_page.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
         primaryColor: Color(0xFF008000),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignInPage(),
+      home: HomePage(),
     );
   }
 }
