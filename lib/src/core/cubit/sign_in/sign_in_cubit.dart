@@ -21,7 +21,9 @@ class SignInCubit extends Cubit<SignInState> {
     try {
       emit(SignInLoading());
       final user = await repository.signInUser(
-          email: 'c@gmail.com', password: '12345678');
+        email: email,
+        password: password,
+      );
       emit(SignInSuccess(user));
     } on Exception {
       emit(SignInFailed());

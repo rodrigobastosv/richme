@@ -1,84 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:richme/src/app/page/sign_in/sign_in_page.dart';
+import 'package:richme/src/app/page/sign_up/widget/sign_up_form.dart';
 import 'package:richme/src/core/cubit/sign_up/sign_up_cubit.dart';
 
-class SignUpView extends StatefulWidget {
-  @override
-  _SignUpViewState createState() => _SignUpViewState();
-}
-
-class _SignUpViewState extends State<SignUpView> {
-  String _name;
-  String _email;
-  String _password;
-  final _formKey = GlobalKey<FormState>();
-
+class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<SignUpCubit, SignUpState>(
-        listener: (_, state) {
-          if (state is SignUpSuccess) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => SignInPage(),
-              ),
-            );
-          }
-        },
-        builder: (_, state) => Form(
-          key: _formKey,
-          child: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/background.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Nome',
-                  ),
-                  validator: (name) =>
-                      name.isEmpty ? 'Campo Obrigatório' : null,
-                  onChanged: (name) => _name = name,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Email',
-                  ),
-                  validator: (email) =>
-                      email.isEmpty ? 'Campo Obrigatório' : null,
-                  onChanged: (email) => _email = email,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Senha',
-                  ),
-                  validator: (password) =>
-                      password.isEmpty ? 'Campo Obrigatório' : null,
-                  onChanged: (password) => _password = password,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Confirme a Senha',
+                Container(
+                  height: 0.15 * MediaQuery.of(context).size.height,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 38),
+                    child: Text(
+                      'Registrar',
+                      style: TextStyle(
+                        fontSize: 38,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-                RaisedButton(
-                  onPressed: () {
-                    final form = _formKey.currentState;
-                    if (form.validate()) {
-                      form.save();
-                      context.bloc<SignUpCubit>().signUpUser(
-                            name: _name,
-                            email: _email,
-                            password: _password,
-                          );
-                    }
-                  },
-                  child: Text('Cadastrar'),
+                Container(
+                  height: 0.85 * MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(70),
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 48),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 500,
+                          child: SignUpForm(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Já tem uma conta?'),
+                            SizedBox(width: 6),
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => SignInPage(),
+                                ),
+                              ),
+                              child: Text(
+                                'Entrar!',
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
