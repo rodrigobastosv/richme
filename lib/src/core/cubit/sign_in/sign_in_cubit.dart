@@ -19,7 +19,8 @@ class SignInCubit extends Cubit<SignInState> {
     String password,
   }) async {
     try {
-      emit(SignInLoading());
+      emit(StartedSignInAnimation());
+      await Future.delayed(Duration(seconds: 1));
       final user = await repository.signInUser(
         email: email,
         password: password,

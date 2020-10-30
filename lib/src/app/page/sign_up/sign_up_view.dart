@@ -1,8 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:richme/src/app/page/sign_in/sign_in_page.dart';
 import 'package:richme/src/app/page/sign_up/widget/sign_up_form.dart';
-import 'package:richme/src/core/cubit/sign_up/sign_up_cubit.dart';
 
 class SignUpView extends StatelessWidget {
   @override
@@ -56,7 +55,7 @@ class SignUpView extends StatelessWidget {
                             SizedBox(width: 6),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
+                                CupertinoPageRoute(
                                   builder: (_) => SignInPage(),
                                 ),
                               ),

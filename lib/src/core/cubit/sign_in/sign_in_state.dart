@@ -8,7 +8,7 @@ class SignInInitial extends SignInState {
   List<Object> get props => [];
 }
 
-class SignInLoading extends SignInState {
+class StartedSignInAnimation extends SignInState {
   @override
   List<Object> get props => [];
 }

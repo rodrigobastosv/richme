@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:richme/src/app/page/sign_in/widget/sign_in_form.dart';
 import 'package:richme/src/app/page/sign_up/sign_up_page.dart';
@@ -59,7 +60,7 @@ class _SignInViewState extends State<SignInView> {
                             SizedBox(width: 6),
                             GestureDetector(
                               onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(
+                                CupertinoPageRoute(
                                   builder: (_) => SignUpPage(),
                                 ),
                               ),

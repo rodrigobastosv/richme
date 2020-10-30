@@ -30,7 +30,8 @@ class SignUpCubit extends Cubit<SignUpState> {
       password: password,
     );
     try {
-      emit(SignUpLoading());
+      emit(StartedSignUpAnimation());
+      await Future.delayed(Duration(seconds: 1));
       await repository.signUpUser(user);
       emit(SignUpSuccess());
     } on Exception {

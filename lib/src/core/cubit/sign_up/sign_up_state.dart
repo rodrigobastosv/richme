@@ -7,7 +7,7 @@ class SignUpInitial extends SignUpState {
   List<Object> get props => [];
 }
 
-class SignUpLoading extends SignUpState {
+class StartedSignUpAnimation extends SignUpState {
   @override
   List<Object> get props => [];
 }
