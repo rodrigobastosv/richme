@@ -10,7 +10,7 @@ class SignUpView extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background.jpg'),
+            image: AssetImage('assets/images/background.jpeg'),
             fit: BoxFit.cover,
           ),
         ),
